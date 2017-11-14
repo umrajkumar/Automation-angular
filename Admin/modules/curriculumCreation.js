@@ -891,7 +891,7 @@ module.exports={
 			browser.sleep(1000);
 			this.moduleWithAllActivitiesAsScheduled("2","2");
 			browser.sleep(2000);
-		/*	this.sectionWithAllActivitiesAsMajor("2");
+			this.sectionWithAllActivitiesAsMajor("2");
 			browser.sleep(2000);
 	
 			browser.executeScript('window.scrollTo(0,-100);');

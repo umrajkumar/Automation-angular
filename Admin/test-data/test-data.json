@@ -1,0 +1,38 @@
+{
+"testData":{
+"environment":{
+"url":"https://dev.revature.com/core"
+},
+"loginCredential":{
+"userName":"devtraineadmin@yopmail.com ",
+"password":"Pass123$"
+},
+"salesforcecode":{
+"salecode":"001i000000LPJmv" 
+},
+"couponcode":{
+"code":"12345"
+},
+"contentsubscribtion":{
+"project1":"MySwoleMate 100",
+"course1":"AngularJs 2",
+"quiz1":"ADO.NET - Data Providers"
+},
+"successmessage":{
+"orgcreationsucessmessage":"Organization created successfully.",
+"orgActivationcodesucessmessage":"Activation code saved successfully."
+},
+"activitype":{
+"quiztype":"quiz",
+"referencetype":"reference",
+"lecturetype":"lecture",
+"assignmenttype":"assignment",
+"gradingtype":"grade",
+"videotype":"video",
+"projecttype":"project"
+},
+"attachment":{
+"jpeg":"img_01.jpg"
+}
+}
+}

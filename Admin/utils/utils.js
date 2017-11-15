@@ -276,5 +276,12 @@ getRandomGradingName : function(){
 		return randomodomainname;
 	
 },
+getRandomNO : function(){
+	var stringValue = this.getRandomNumber(7);
+	
+		return stringValue;
+	
+},
+
 
 }

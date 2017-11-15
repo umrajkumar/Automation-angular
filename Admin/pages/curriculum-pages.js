@@ -3,7 +3,7 @@
 var curriculumPages = function(){
 	var creatNewCurriculum = element(by.xpath(".//*[@id='curriculumForm']/div/div[1]/div/a"));
 	var title = element(by.id("curriculumForm:titleId"));
-	var duration = element(by.id("curriculumForm:durationId"));
+	var duration = element(by.name("curriculumForm:durationId"));
 	var addNewSection = element(by.id("curriculumForm:addNewSection"));
 	var sectionTitle = element(by.name("curriculumForm:sectionTitleId"));
 	var saveSection = element(by.xpath("//*[@id='curriculumForm:sectionAddPanId']/div[2]/input"));
@@ -38,7 +38,7 @@ var curriculumPages = function(){
 	
 	
 	var maximumpoint = element(by.name("curriculumForm:actGradingId"));
-	var activityduration = element(by.id("curriculumForm:actDurationId"));
+	var activityduration = element(by.id("curriculumForm:act-hrs"));
 	
 	var quizHiddenButton = element(by.xpath(".//*[@id='curriculumForm:activityPanId']/div[1]/div[2]/fieldset[3]/div[1]/div/div/input"));
 	var referenceHiddenButton = element(by.xpath(".//*[@id='curriculumForm:activityPanId']/div[1]/div[2]/fieldset[3]/div[1]/div/div/input"));
@@ -85,7 +85,7 @@ var curriculumPages = function(){
 	var moduleReuseableCheckBox = element(by.xpath(".//*[@id='curriculumForm:asd']/div/fieldset[1]/div[2]/div/div/input"));
 	var moduleHideDescription = element(by.xpath(".//*[@id='curriculumForm:asd']/div/fieldset[1]/div[5]/div/div/input"));
 	var moduleSchedule	= element(by.xpath(".//*[@id='curriculumForm:asd']/div/fieldset[2]/div[1]/div/div/input"));
-	var moduleDuration = element(by.id("curriculumForm:moduleDurationId"));
+	var moduleDuration = element(by.name("curriculumForm:mod-hrs"));
 	var moduleHidden = element(by.xpath(".//*[@id='curriculumForm:asd']/div/fieldset[3]/div/div/div/input"));
 	var moduleSave = element(by.xpath("//*[@id='curriculumForm:asd2']/div/input"));
 
@@ -175,7 +175,7 @@ var curriculumPages = function(){
 	this.clickSelectQuiz = function(){
 		selectQuiz.click();
 	};
-	this.enterquizname=function(no){
+	this.enterquizname=function(){
 		//enterquiz.sendKeys("1707 - Information Security",protractor.Key.ENTER);
 		enterquiz.click();
 		//browser.element(by.xpath(".//*[@class='select2-results']/li["+no+"]"));
@@ -184,7 +184,7 @@ var curriculumPages = function(){
 	this.ClickSelectVideo=function(){
 		selectVideo.click();
 	};
-	this.enterVideoName=function(no){
+	this.enterVideoName=function(){
 		//browser.element(by.xpath(".//*[@class='select2-results']/li["+no+"]"));
 		enderVideo.click();
 		//enderVideo.sendKeys("Angular 2 - Architecture",protractor.Key.ENTER);
@@ -194,7 +194,7 @@ var curriculumPages = function(){
 		maximumpoint.sendKeys("8");
 	};
 	this.enterActivityduration=function(){
-		activityduration.sendKeys("8");
+		activityduration.sendKeys("2");
 	};
 	
 	this.clickSaveActivity=function(){

@@ -866,9 +866,9 @@ module.exports={
 		
 		createCulumWithAllActivitiesAndMajor:function(){
 			
-				this.curriculumBasicDetails();
+			this.curriculumBasicDetails();
 			
-			//Section 1
+			//Section 1 
 			this.createSection();
 			this.createModule("1");
 			browser.sleep(1000);
@@ -877,25 +877,23 @@ module.exports={
 			browser.sleep(1000);
 			this.moduleWithAllActivitiesAsMajor("1","2");
 			browser.sleep(2000);
-			this.sectionWithAllActivitiesAsScheduled("1");
+			this.sectionWithBasicdetails("1");
 			browser.sleep(2000);
+			
 			
 			
 			 //Section 2
 			this.createSection();
 			this.createModule("2");
 			browser.sleep(2000);
-			this.moduleWithBasicdetails("2","1");
-			browser.sleep(2000);
-			this.createModule("2");
+			this.moduleWithAllActivitiesAsScheduled("2","1");
 			browser.sleep(1000);
-			this.moduleWithAllActivitiesAsScheduled("2","2");
-			browser.sleep(2000);
 			this.sectionWithAllActivitiesAsMajor("2");
 			browser.sleep(2000);
-	
+			this.sectionWithAllActivitiesAsScheduled("2");
+			browser.sleep(2000);
 			browser.executeScript('window.scrollTo(0,-100);');
-			curriculumElement.clickSaveCurriculum() */
+			curriculumElement.clickSaveCurriculum();
 			
 		},
 		
@@ -928,7 +926,7 @@ module.exports={
 			browser.sleep(500);
 			
 			browser.executeScript('window.scrollTo(0,-100);');
-			curriculumElement.clickSaveCurriculum()
+			curriculumElement.clickSaveCurriculum();
 		 },
 
 };

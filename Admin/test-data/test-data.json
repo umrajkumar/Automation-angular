@@ -1,10 +1,10 @@
 {
 "testData":{
 "environment":{
-"url":"https://dev.revature.com/core"
+"url":"https://qa.revature.com/core"
 },
 "loginCredential":{
-"userName":"devtraineadmin@yopmail.com ",
+"userName":"rktradmin@yopmail.com",
 "password":"Pass123$"
 },
 "salesforcecode":{
@@ -33,6 +33,17 @@
 },
 "attachment":{
 "jpeg":"img_01.jpg"
+},
+"Description":{
+"curriculmDescription":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+"moduleDesription":"There is one very important command that will help us to get back to the main page. Main page is the page in which two iFrames are embedded. Once you are done with all the task in a particular iFrame you can switch back to the main page using the switchTo().defaultContent().",
+"quizDescription":"Test your knowledge on how to create references or objects in this introductory quiz on Constructors & References in C#!",
+"videoDescription":"It has been estimated that over three billion devices currently run Java programs including cell phones and computers. This course covers the basics of Java, an object oriented programming (OOP) language. The course begins with an overview of statements, Strings, and classes, before moving on to OOP concepts like inheritance, interfaces, abstract classes, and polymorphism. Advanced topics like reflection, generics, and threads are not covered in this course.",
+"lectureDescription":"Learn how to connect any .NET Application to a SQL Server Database! This course is an introduction to how to create a database using SQL Server and how to use the ADO.NET Data Provider for SQL Server in order to retrieve & manipulate data to & from your .NET application. Knowledge of C# is required so check out our Introduction to C# course if you are unfamiliar with the C# programming language!",
+"referenceDescrition":"This course covers the fundamentals of CSS (Cascading Style Sheets). CSS is used to provide styling and improve the layout and aesthetics of your website. Taking this course will improve your Front-End skills and help you understand how elements are placed, measurements used by the browser, and how to improve the look and feel of your design.",
+"assignmentDescription":"So nice, they made a second version!. Learn about the frontend web framework, AngularJS Version 2. We'll point out some key differences between Angular Version 1 versus Version 2 as well as uncover some of the new features such as Components, Modules, and Http Services. ",
+"ProjectDescription":"Sousmate is a kitchen aid, helping users to cook their favorite recipes. Recipes can be uploaded by Users, which Sousmate will display for users cooking that recipe in a step-by-step fashion. Sousmate will track the cooking time for foods, and will alert users when certain periods of time have elapsed. In this 100 level internship, Developers will build the static HTML and CSS content for all pages of the website as well as implement JavaScript timers to create a count-down clock for recipe cooking times. ",
+"gradingDescription":"This is a web application that improves customer record keeping for service-oriented businesses. The scope of the task is developing a portal in which internal staff can access customer information conveniently, whether it be from a mobile device on the client-site, or a desktop at the office . Users can access important customer information, schedule and manage service appointments, and generate invoices for the customer."
 }
 }
 }

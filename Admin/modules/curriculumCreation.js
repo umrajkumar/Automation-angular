@@ -18,6 +18,7 @@ module.exports={
 		curriculumElement.clickCreatNewCurriculum();
 		curriculumElement.enterCurriculumTitle(utils.getRandomCurriculumName());
 		curriculumElement.enterCurrilculumDuration();
+		this.addCurriculumDescription(coreData.testData.Description.curriculmDescription);
 		},
 		createSection:function(){
 		curriculumElement.clickAddNewSection();
@@ -28,22 +29,48 @@ module.exports={
 		},
 		
 		createModule:function(no){
-			browser.executeScript('window.scrollTo(0,200);');
+			browser.executeScript('window.scrollTo(0,400);');
 			browser.sleep(1000);
 			curriculumElement.clickAddModule(no);
 			browser.sleep(2000);
 			curriculumElement.enterModuleName(utils.getRandomModuleName());
+			this.addModuleDescription(coreData.testData.Description.quizDescription);
 			curriculumElement.clickModuleReuseableCheckBox();
 			curriculumElement.clickModuleHideDescription();
 			curriculumElement.clickModuleSchedule();
 			curriculumElement.entermoduleDuration();
+			
 			//curriculumElement.clickModuleHidden();
 			browser.sleep(4000);
 			curriculumElement.clickModuleSave();
 			browser.sleep(5000);
-			
 		},
 		
+		addCurriculumDescription:function(description){
+			browser.switchTo().frame(0);
+			curriculumElement.enterDescription(description);
+			browser.sleep(2000);
+			browser.switchTo().defaultContent();
+		},
+		
+		addModuleDescription:function(description){
+			browser.sleep(2000);
+			curriculumElement.clickModuleFrameElement();
+			browser.switchTo().frame(curriculumElement.switchModuleFrameElement().getWebElement());
+			browser.sleep(2000);
+			curriculumElement.enterDescription(description);
+			browser.sleep(2000);
+			browser.switchTo().defaultContent();
+		},
+		addActivityDescription:function(description){
+			browser.sleep(2000);
+			curriculumElement.clickFrameElement();
+			browser.switchTo().frame(curriculumElement.switchFrameElement().getWebElement());
+			browser.sleep(2000);
+			curriculumElement.enterDescription(description);
+			browser.sleep(2000);
+			browser.switchTo().defaultContent();
+		},
 		
 		addModuleActivity:function(secno,modno){
 			browser.sleep(2000);
@@ -56,6 +83,16 @@ module.exports={
 			browser.executeScript('window.scrollTo(0,100);');
 			curriculumElement.clickAddSectionActivity(no);
 			browser.sleep(2000);
+		},
+		
+		checkCreationValidationMessage:function(){
+			if(expect(curriculumElement.creationSucessMessage()).toEqual("Curriculum saved successfully.")){
+				
+			}
+			else{
+				var message = curriculumElement.creationSucessMessage();
+				console.log (message);
+			}
 		},
 		
 		
@@ -76,13 +113,17 @@ module.exports={
 		
 		createQuizActivityBasicFields:function(){
 		curriculumElement.selectActivityType(coreData.testData.activitype.quiztype);
+		browser.sleep(1000);
 		curriculumElement.enterActivityName(utils.getRandomQuizName());
+		browser.sleep(1000);
 		curriculumElement.clickSelectQuiz();
 		browser.sleep(1000);
 		curriculumElement.enterquizname();
+		browser.sleep(1000);
+		this.addActivityDescription(coreData.testData.Description.quizDescription);
 		browser.executeScript('window.scrollTo(0,300);');
 		browser.sleep(1000);
-		//curriculumElement.enterMaximumpoint();
+	//	curriculumElement.enterMaximumpoint();
 		curriculumElement.enterActivityduration();
 		},
 		
@@ -140,7 +181,9 @@ module.exports={
 		//reference activity and its methos
 		createReferenceActivityBasicFields:function(){
 		curriculumElement.selectActivityType(coreData.testData.activitype.referencetype);
+		browser.sleep(1000);
 		curriculumElement.enterActivityName(utils.getRandomReferenceName());
+		this.addActivityDescription(coreData.testData.Description.referenceDescrition);
 		browser.executeScript('window.scrollTo(0,500);');
 		curriculumElement.enterActivityduration();
 		},
@@ -227,7 +270,9 @@ module.exports={
 		// lecture activity
 		createLectureActivityBasicFields:function(){
 		curriculumElement.selectActivityType(coreData.testData.activitype.lecturetype);
+		browser.sleep(1000);
 		curriculumElement.enterActivityName(utils.getRandomLectureName());
+		this.addActivityDescription(coreData.testData.Description.lectureDescription);
 		browser.executeScript('window.scrollTo(0,500);');
 		curriculumElement.enterActivityduration();
 		},
@@ -266,6 +311,7 @@ module.exports={
 		//lecture as major
 		createLectureAsMajoraActivity:function(){
 		this.createLectureActivityBasicFields();
+		browser.sleep(800);
 		curriculumElement.clickLectureMajor();
 		curriculumElement.clickSaveActivity();
 		},
@@ -296,8 +342,10 @@ module.exports={
 		//assignment activity 
 		createAssignementActivityBasicFields:function(){
 		curriculumElement.selectActivityType(coreData.testData.activitype.assignmenttype);
+		browser.sleep(1000);
 		curriculumElement.enterActivityName(utils.getRandomAssignmentName());
 		browser.sleep(1000);
+		this.addActivityDescription(coreData.testData.Description.assignmentDescription);
 		curriculumElement.enterMaximumpoint();
 		curriculumElement.enterActivityduration();
 		//curriculumElement.clickSubmissionRequired();
@@ -357,8 +405,10 @@ module.exports={
 		//grading activity
 		createGradingActivityBasicFields:function(){
 		curriculumElement.selectActivityType(coreData.testData.activitype.gradingtype);
+		browser.sleep(1000);
 		curriculumElement.enterActivityName(utils.getRandomGradingName());
 		browser.sleep(1000);
+		this.addActivityDescription(coreData.testData.Description.gradingDescription);
 		curriculumElement.enterMaximumpoint();
 		curriculumElement.enterActivityduration();
 		},
@@ -421,8 +471,10 @@ module.exports={
 		createvideoActivityBasicFields:function(){
 		curriculumElement.enterActivityName(utils.getRandomVideoName());
 		curriculumElement.selectActivityType(coreData.testData.activitype.videotype);
+		browser.sleep(1000);
 		curriculumElement.ClickSelectVideo();
 		curriculumElement.enterVideoName();
+		this.addActivityDescription(coreData.testData.Description.videoDescription);
 		curriculumElement.enterActivityduration();
 		},
 		
@@ -483,6 +535,8 @@ module.exports={
 		createProjectActivityBasicFields:function(){
 		curriculumElement.enterActivityName(utils.getRandomProjectName());
 		curriculumElement.selectActivityType(coreData.testData.activitype.projecttype);
+		browser.sleep(1000);
+		this.addActivityDescription(coreData.testData.Description.ProjectDescription);
 		curriculumElement.enterActivityduration();
 		},
 		createProjectAsMajoraANDHidesDescriptionANDScheduledAndHideActivity:function(){
@@ -674,8 +728,8 @@ module.exports={
 			this.createReferenceAsMajoractivity();
 			this.addSectionActivity(no);
 			this.createLectureAsMajoraActivity();
-			this.addSectionActivity(no);
 			browser.sleep(2000);
+			this.addSectionActivity(no);
 			this.createAssignementAsMajoraActivity();
 			this.addSectionActivity(no);
 			this.createGradingAsMajorActivity();
@@ -864,9 +918,10 @@ module.exports={
 		},
 		
 		
-		createCulumWithAllActivitiesAndMajor:function(){
+		createCulumWithAllActivities:function(){
 			
 			this.curriculumBasicDetails();
+			
 			
 			//Section 1 
 			this.createSection();
@@ -877,10 +932,8 @@ module.exports={
 			browser.sleep(1000);
 			this.moduleWithAllActivitiesAsMajor("1","2");
 			browser.sleep(2000);
-			this.sectionWithBasicdetails("1");
+			this.sectionWithAllActivitiesAsHidDescription("1");
 			browser.sleep(2000);
-			
-			
 			
 			 //Section 2
 			this.createSection();
@@ -928,5 +981,116 @@ module.exports={
 			browser.executeScript('window.scrollTo(0,-100);');
 			curriculumElement.clickSaveCurriculum();
 		 },
-
+	 
+	 
+	 //test cases starts
+	 
+	 
+		 createSectionAndModulewithActivities:function(){
+			 this.curriculumBasicDetails();
+			  //Section 1
+			this.createSection();
+			this.createModule("1");
+			browser.sleep(1000);
+			this.moduleWithBasicdetails("1","1");
+			browser.sleep(2000);
+			this.sectionWithBasicdetails("1");
+			browser.sleep(2000);
+			
+			browser.executeScript('window.scrollTo(0,-100);');
+			curriculumElement.clickSaveCurriculum();
+			browser.sleep(2000);
+		 },
+		 
+		 createSectionAndModulewithMajorActivities:function(){
+			 this.curriculumBasicDetails();
+			  //Section 1
+			this.createSection();
+			this.createModule("1");
+			browser.sleep(1000);
+			this.moduleWithAllActivitiesAsMajor("1","1");
+			browser.sleep(2000);
+			this.sectionWithAllActivitiesAsMajor("1");
+			browser.sleep(2000);
+			
+			browser.executeScript('window.scrollTo(0,-100);');
+			curriculumElement.clickSaveCurriculum();
+			browser.sleep(2000);
+		 },
+		 	 
+		 createSectionAndModulewithScheduled:function(){
+			  this.curriculumBasicDetails();
+			  //Section 1
+			this.createSection();
+			this.createModule("1");
+			browser.sleep(1000);
+			this.moduleWithAllActivitiesAsScheduled("1","1");
+			browser.sleep(2000);
+			this.sectionWithAllActivitiesAsScheduled("1");
+			browser.sleep(2000);
+			
+			browser.executeScript('window.scrollTo(0,-100);');
+			curriculumElement.clickSaveCurriculum();
+			browser.sleep(2000);
+		 },
+		 
+		 createSectionAndModulewithHideDescrtiption:function(){
+			  this.curriculumBasicDetails();
+			  //Section 1
+			this.createSection();
+			this.createModule("1");
+			browser.sleep(1000);
+			this.moduleWithAllActivitiesAsHidDescription("1","1");
+			browser.sleep(2000);
+			this.sectionWithAllActivitiesAsHidDescription("1");
+			browser.sleep(2000);
+			
+			browser.executeScript('window.scrollTo(0,-100);');
+			curriculumElement.clickSaveCurriculum();
+			browser.sleep(3000);
+		 },
+	
+		 createSectionAndModulewithHidden:function(){
+			  this.curriculumBasicDetails();
+			  //Section 1
+			this.createSection();
+			this.createModule("1");
+			browser.sleep(1000);
+			this.moduleWithAllActivitiesAsHidden("1","1");
+			browser.sleep(2000);
+			this.SectionWithAllActivitiesAsHidden("1");
+			browser.sleep(2000);
+			
+			browser.executeScript('window.scrollTo(0,-100);');
+			curriculumElement.clickSaveCurriculum();
+			browser.sleep(1000);
+		 },
+		 
+		 createtwoSectionOneWithactivitiesAndAotherWithMajorActivities:function(){
+			 this.curriculumBasicDetails();
+			  //Section 1
+			this.createSection();
+			this.createModule("1");
+			browser.sleep(1000);
+			this.moduleWithBasicdetails("1","1");
+			browser.sleep(2000);
+			this.sectionWithBasicdetails("1");
+			browser.sleep(2000);
+			
+			  //Section 2
+			this.createSection();
+			this.createModule("2");
+			browser.sleep(1000);
+			this.moduleWithAllActivitiesAsMajor("2","1");
+			browser.sleep(2000);
+			this.sectionWithAllActivitiesAsMajor("2");
+			browser.sleep(2000);
+			
+			browser.executeScript('window.scrollTo(0,-100);');
+			curriculumElement.clickSaveCurriculum();
+			browser.sleep(500);
+			 
+		 },
+		 
+		 
 };

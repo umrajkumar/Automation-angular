@@ -1,23 +1,27 @@
 'use strict';
 
 var curriculumPages = function(){
-	var creatNewCurriculum = element(by.xpath(".//*[@id='curriculumForm']/div/div[1]/div/a"));
+	var creatNewCurriculum = element(by.xpath(".//*[@class='emp-button']/a"));
 	var title = element(by.id("curriculumForm:titleId"));
 	var duration = element(by.name("curriculumForm:durationId"));
 	var addNewSection = element(by.id("curriculumForm:addNewSection"));
 	var sectionTitle = element(by.name("curriculumForm:sectionTitleId"));
 	var saveSection = element(by.xpath("//*[@id='curriculumForm:sectionAddPanId']/div[2]/input"));
 	var saveCurriculum = element(by.xpath(".//*[@id='curriculumForm:saveCurriculumBtn']"));
+	var description = element(by.xpath("html/body"))
+	var frameElement = element(by.xpath("//*[@id='curriculumForm:descPanId']/div/div/div/iframe"));
+	var moduleFrameElement = element(by.xpath(".//*[@id='curriculumForm:asd']/div/fieldset[1]/div[4]/div/div/div/div/div/iframe"));
+	var sucessMessage = element(by.id("curriculumForm:msgId"));
 	
 		
 	var activityName = element(by.id("curriculumForm:activityTitleId"));
 	var selectActvityType = element(by.xpath(".//*[@id='curriculumForm:activityTypeId']"));
 	
-	var selectQuiz = element(by.xpath("//*[@id='s2id_curriculumForm:selectActivityAsmt']/a/span[1]"));
-	var enterquiz = element(by.xpath(".//*[@class='select2-results']/li[4]"));
+	var selectQuiz = element(by.xpath("//*[@id='s2id_curriculumForm:selectActivityAsmt']/a"));
+	var enterquiz = element(by.xpath(".//*[@class='select2-results']/li[30]"));
 	
 	var selectVideo = element(by.xpath(".//*[@id='s2id_curriculumForm:selectActivityVideo']/a"));
-	var enderVideo = element(by.xpath(".//*[@class='select2-results']/li[4]"));
+	var enderVideo = element(by.xpath(".//*[@class='select2-results']/li[6]"));
 
 
 	var quizHideDescription = element(by.xpath(".//*[@id='curriculumForm:activityPanId']/div[1]/div[2]/fieldset[1]/div[5]/div/div/input"));
@@ -38,6 +42,7 @@ var curriculumPages = function(){
 	
 	
 	var maximumpoint = element(by.name("curriculumForm:actGradingId"));
+		//qa2 environment var activityduration = element(by.id("curriculumForm:actDurationId"));
 	var activityduration = element(by.id("curriculumForm:act-hrs"));
 	
 	var quizHiddenButton = element(by.xpath(".//*[@id='curriculumForm:activityPanId']/div[1]/div[2]/fieldset[3]/div[1]/div/div/input"));
@@ -85,7 +90,8 @@ var curriculumPages = function(){
 	var moduleReuseableCheckBox = element(by.xpath(".//*[@id='curriculumForm:asd']/div/fieldset[1]/div[2]/div/div/input"));
 	var moduleHideDescription = element(by.xpath(".//*[@id='curriculumForm:asd']/div/fieldset[1]/div[5]/div/div/input"));
 	var moduleSchedule	= element(by.xpath(".//*[@id='curriculumForm:asd']/div/fieldset[2]/div[1]/div/div/input"));
-	var moduleDuration = element(by.name("curriculumForm:mod-hrs"));
+	//qa2 environment var moduleDuration = element(by.name("curriculumForm:moduleDurationId"));
+	 var moduleDuration = element(by.name("curriculumForm:mod-hrs"));
 	var moduleHidden = element(by.xpath(".//*[@id='curriculumForm:asd']/div/fieldset[3]/div/div/div/input"));
 	var moduleSave = element(by.xpath("//*[@id='curriculumForm:asd2']/div/input"));
 
@@ -98,6 +104,21 @@ var curriculumPages = function(){
 	};
 	this.enterModuleName = function(moduleNames){
 		moduleName.sendKeys(moduleNames);
+	};
+	this.enterDescription = function(content){
+		description.sendKeys(content);
+	};
+	this.clickFrameElement = function(){
+		frameElement.click();
+	};
+	this.switchFrameElement = function(){
+		return frameElement;
+	};
+	this.clickModuleFrameElement = function(){
+		moduleFrameElement.click();
+	};
+	this.switchModuleFrameElement = function(){
+		return moduleFrameElement;
 	};
 	
 	this.clickModuleReuseableCheckBox = function(){
@@ -122,6 +143,13 @@ var curriculumPages = function(){
 		
 		element(by.xpath("//*[@class='dd dd-draghandle cur-tree-width']/ol/li["+secno+"]/ol/li["+modno+"]/div[2]/div/a[1]")).click();;
 		//element(by.xpath("html/body/div[2]/div[2]/div/form/div/div[3]/div[1]/span/span/div/div/div[3]/div/ol/li/ol/li["+no+"]/div[2]/div/a[1]")).click();
+	};
+	
+	
+	
+	
+	this.creationSucessMessage = function(){
+		return sucessMessage.getText();
 	};
 	
 	
